@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            background: #fff0f5; /* Cor de fundo suave */
+            margin: 0; 
+            overflow: hidden; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            font-family: 'Arial', sans-serif; 
+        }
+        
+        .card { 
+            background: rgba(255, 255, 255, 0.9); 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15); 
+            text-align: center; 
+            z-index: 10; 
+            max-width: 80%;
+        }
+
+        h1 { color: #d63384; margin-bottom: 10px; }
+        p { color: #555; line-height: 1.6; margin: 10px 0; }
+
+        .heart { 
+            position: absolute; 
+            top: -10%; 
+            color: #ff4d4d; 
+            font-size: 24px; 
+            animation: fall linear infinite; 
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(110vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Feliz Aniversário! ❤️</h1>
+    <p>Hoje é o dia de celebrar a pessoa incrível que você é.</p>
+    <p>Quero que saiba que você é extremamente especial para mim. Sua dedicação é linda, mas lembre-se: a vida não é feita só de trabalho. Você merece parar, relaxar e curtir o seu dia com toda a paz que merece.</p>
+    <p>Obrigado por ser quem você é.</p>
+    <p><strong>(E aí, ainda me odeia? ksksk)</strong></p>
+</div>
+
+<script>
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.className = "heart";
+        // Define posição horizontal aleatória
+        heart.style.left = Math.random() * 100 + "vw";
+        // Duração aleatória para criar profundidade
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+        
+        // Remove o elemento após a animação para não pesar o celular
+        setTimeout(() => heart.remove(), 6000);
+    }
+    // Cria um novo coração a cada 200ms para um efeito constante
+    setInterval(createHeart, 200);
+</script>
+
+</body>
+</html>
